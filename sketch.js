@@ -3,6 +3,8 @@ let img2;
 let timer = 0;
 let moonphase;
 let rotation;
+let helper;
+
 
 
 function preload() {
@@ -12,37 +14,46 @@ function preload() {
 
 function setup() {
  createCanvas (800,800);
- 
 }
 
 function draw() {
 	background(0);
-	image(img1, 0, 0);
- 	
-	// background(loadImage('assets/wheelring.png'));
-	// moonphase = loadImage('assets/innerwheel.png');
-
+	helper = map(mouseX, 0, 800, 0, 28);
+	// print(helper);
+	moon(helper);
 	// rotation = rotation-0.25;
 	// rotation = rotation%360; 
 
 	push();
 	imageMode(CENTER);
-	translate(mouseX, mouseY);
-	print(mouseX, mouseY);
+	translate(150, 409);
+	// print(mouseX);
 	image(img2, 0, 0);
 	pop();
-
-
-
-  push();
-  imageMode(CENTER);
-  translate(width/2, height/2);
-  rotate(radians(rotation));
-  // image(moonphase, -100, 0, 1500, 1500);
-  fill(23, 23, 23);
-  pop();
-
 }
+
+function moon(phase){//phase should be between 0-28
+	phase = map(phase, 0, 28, 0, 360);
+	print(phase);
+	push();
+  	imageMode(CENTER);
+  	translate(436, 433);
+  	rotate(radians(phase));// phase is going here somehow
+  	image(img1, 0, 0);
+  	pop();
+
+  	//where are we block in p5?
+
+  // image(moon[phase], xLoc, yLoc)
+
+  // ellipse(xLoc, yLoc, phase*overallSize, phase*overallSize);
+}
+
+
+
+
+
+
   // text("day of the month" +int(moonphase), 100, 100);
 
 
