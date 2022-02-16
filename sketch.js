@@ -1,32 +1,48 @@
-let img;
+let img1;
+let img2;
 let timer = 0;
 let moonphase;
-let rotation+=-0.25;
-let rotation = rotation%360; 
+let rotation;
 
-// function preload() {
-//   img = loadImage('assets/background.jpg');
-//   img = loadImage('assets/wheel.jpg');
-// }
+
+function preload() {
+  img1 = loadImage('assets/innerwheel.png');
+  img2 = loadImage('assets/wheelring.png');
+}
 
 function setup() {
  createCanvas (800,800);
- // image(img, 0, 0);
+ 
 }
 
 function draw() {
-	background(loadImage('assets/background.jpg'));
-	moonphase = loadImage('assets/wheel.jpg');
+	background(0);
+	image(img1, 0, 0);
+ 	
+	// background(loadImage('assets/wheelring.png'));
+	// moonphase = loadImage('assets/innerwheel.png');
+
+	// rotation = rotation-0.25;
+	// rotation = rotation%360; 
+
+	push();
+	imageMode(CENTER);
+	translate(mouseX, mouseY);
+	print(mouseX, mouseY);
+	image(img2, 0, 0);
+	pop();
 
 
-pushMatrix();
+
+  push();
   imageMode(CENTER);
   translate(width/2, height/2);
   rotate(radians(rotation));
-  image(moonphase, -100, 0, 1500, 1500);
+  // image(moonphase, -100, 0, 1500, 1500);
   fill(23, 23, 23);
-  popMatrix();
+  pop();
 
+}
   // text("day of the month" +int(moonphase), 100, 100);
 
 
