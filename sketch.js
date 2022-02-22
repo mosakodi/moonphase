@@ -1,15 +1,16 @@
 let img1;
 let img2;
-let timer = 0;
+// let timer = 0;
 let moonphase;
-let rotation;
+// let rotation;
 let helper;
+// let phase = 0;
 
 
 
 function preload() {
-  img1 = loadImage('assets/innerwheel.png');
-  img2 = loadImage('assets/wheelring.png');
+  img1 = loadImage('assets/outerwheel2.png');
+  img2 = loadImage('assets/innerwheel2.png');
 }
 
 function setup() {
@@ -18,11 +19,14 @@ function setup() {
 
 function draw() {
 	background(0);
-	helper = map(mouseX, 0, 800, 0, 28);
-	// print(helper);
+	helper = map(0, 0, 800, 0, 28);
+	print(helper);
 	moon(helper);
+
+	//where does this go to make the img2 rotate counter clockwise??
 	// rotation = rotation-0.25;
 	// rotation = rotation%360; 
+		
 
 	push();
 	imageMode(CENTER);
