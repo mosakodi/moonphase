@@ -1,16 +1,11 @@
 let img1;
-let img2;
-// let timer = 0;
 let moonphase;
-// let rotation;
 let helper;
-// let phase = 0;
-
+var angle = 0;
 
 
 function preload() {
-  img1 = loadImage('assets/outerwheel2.png');
-  img2 = loadImage('assets/innerwheel2.png');
+  img1 = loadImage('assets/outerwheel4.png');
 }
 
 function setup() {
@@ -19,39 +14,83 @@ function setup() {
 
 function draw() {
 	background(0);
-	helper = map(0, 0, 800, 0, 28);
-	print(helper);
-	moon(helper);
+	// img1 = loadImage('assets/outerwheel3.png');
+	// helper = map(0, 0, 800, 0, 30);
+	// print(helper);
+	// moon(helper);
 
-	//where does this go to make the img2 rotate counter clockwise??
-	// rotation = rotation-0.25;
-	// rotation = rotation%360; 
-		
-
-	push();
-	imageMode(CENTER);
-	translate(150, 409);
-	// print(mouseX);
-	image(img2, 0, 0);
-	pop();
-}
-
-function moon(phase){//phase should be between 0-28
-	phase = map(phase, 0, 28, 0, 360);
-	print(phase);
 	push();
   	imageMode(CENTER);
-  	translate(436, 433);
-  	rotate(radians(phase));// phase is going here somehow
+  	translate(width/2, height/2);
+  	// image(img1, 210, 400);
   	image(img1, 0, 0);
   	pop();
+
+	push();
+	angle+=-0.01
+	translate(width/2,height/2);
+	rotate(angle);
+	// line(400, 350, 235, 305);
+	stroke('red');
+	strokeWeight(10);
+	line(0, 0, 130, 130);
+	pop();
+  }
+
+ //  	push();
+	// stroke('red');
+	// strokeWeight(10);
+	// line(400, 350, 235, 305);
+	// //where does this go to make the line rotate counter clockwise??
+	// // rotation = rotation-0.25;
+	// // rotation = rotation%360;
+	// pop();
+
+
+function moon(phase){//phase should be between 0-28
+	phase = map(phase, 0, 30, 0, 360);
+	// push();
+	// stroke('red');
+	// strokeWeight(10);
+	// // rotate(radians(phase));
+	// line(400, 350, 235, 305);
+	//where does this go to make the line rotate counter clockwise??
+	// rotation = rotation-0.25;
+	// rotation = rotation%360;
+	// pop();
+
+
+}
+
+	
+
+
+
+
+
+
+	
+
+//   function drawArrow(base, vec, myColor) {
+//   	push();
+//   	stroke(red);
+//   	strokeWeight(6);
+//   	fill(red);
+//   	translate(400, 350);
+//   	line(400, 350, vec.x, vec.y);
+//   	rotate(vec.heading());
+//   	let arrowSize = 7;
+//   	translate(vec.mag() - arrowSize, 0);
+//   	triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+//   	pop();
+// }
 
   	//where are we block in p5?
 
   // image(moon[phase], xLoc, yLoc)
 
   // ellipse(xLoc, yLoc, phase*overallSize, phase*overallSize);
-}
+
 
 
 
